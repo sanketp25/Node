@@ -1,6 +1,7 @@
 //Asynchronous Functions => Callbacks
 
 
+//this function is called callback hell because of multiple callbacks.
 console.log('Before');
 getUser(1,(user) => {
     console.log('User',user);
