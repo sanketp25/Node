@@ -3,14 +3,16 @@
 
 //this function is called callback hell because of multiple callbacks.
 console.log('Before');
-getUser(1,(user) => {
-    console.log('User',user);
-    getRepo(user.gitHubUsername,(repo) => {
-        console.log('Repos: ',repo.repos)
-    });
-});
+getUser(1,getRepositories);
 console.log('After');
+function getRepositories(user){
+    console.log('User',user);
+    getRepo(user.gitHubUsername,displayRepo);
+}
 
+function displayRepo(repo){
+    console.log('Repos: ',repo.repos);
+}
 
 function getUser(id,callback){
     setTimeout(() => {
